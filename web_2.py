@@ -2,6 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 from random import choice
 import csv
+from time import sleep
 from csv import writer
 article_all=list()
 for x in range(1,11):
@@ -9,6 +10,7 @@ for x in range(1,11):
 	soup= BeautifulSoup(response.text,"html.parser")
 	articles=soup.find_all(class_="quote")
 	article_all.extend(articles)
+	sleep(3)
 
 
 
