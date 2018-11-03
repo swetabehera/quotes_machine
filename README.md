@@ -1,4 +1,4 @@
-# revisiting_remarkable_authors
+# QUOTES MACHINE!
 
 Its a simple game . All you need to do is guess the name of the person who has quoted the given one.
 
