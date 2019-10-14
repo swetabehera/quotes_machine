@@ -12,10 +12,8 @@ for x in range(1,11):
 	article_all.extend(articles)
 	sleep(3)
 
-
-
-sweta=True
-while(sweta):
+cond=True
+while(cond):
 	article=choice(article_all)
 	quote=article.find(class_="text").get_text()
 	author=article.find(class_="author").get_text()
@@ -62,17 +60,17 @@ while(sweta):
 		sweta=False
 
 
-# with open("web_scr2.csv","w") as file:
-# 	csv_writer=writer(file)
-# 	csv_writer.writerow(["Quote","Author","Birth","First Name Initial","Last Name Initial"])
-# 	for article in article_all:
-# 		quote=article.find(class_="text").get_text()
-# 		author=article.find(class_="author").get_text()
-# 		url=article.find("a")['href']
-# 		re=requests.get("http://quotes.toscrape.com"+url)
-# 		so=BeautifulSoup(re.text,"html.parser")
-# 		first_letter=author[0]
-# 		last_letter=author.split()[-1][0]
-# 		born=so.find(class_="author-born-date").get_text()+" "+so.find(class_="author-born-location").get_text()
-# 		csv_writer.writerow([quote,author,born,first_letter,last_letter])
+with open("web_scr2.csv","w") as file:
+	csv_writer=writer(file)
+	csv_writer.writerow(["Quote","Author","Birth","First Name Initial","Last Name Initial"])
+	for article in article_all:
+		quote=article.find(class_="text").get_text()
+		author=article.find(class_="author").get_text()
+		url=article.find("a")['href']
+		re=requests.get("http://quotes.toscrape.com"+url)
+		so=BeautifulSoup(re.text,"html.parser")
+		first_letter=author[0]
+		last_letter=author.split()[-1][0]
+		born=so.find(class_="author-born-date").get_text()+" "+so.find(class_="author-born-location").get_text()
+		csv_writer.writerow([quote,author,born,first_letter,last_letter])
 
